@@ -7,7 +7,7 @@
 }
 
 .wrapper {
-  height: 100vh;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.1);
 }
 .container {
@@ -96,13 +96,21 @@
   justify-content: space-around;
   /* align-items: center; */
 }
-/* .current__weather_body > * {
+.current__weather_body > * {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-} */
+}
+.current__weather__icon {
+  text-align: center;
+}
+.current__weather__image {
+  height: 80%;
+  width: 100%;
+  object-fit: contain;
+}
 .current__weather__degrees h2 {
-  font-size: 3vw;
+  font-size: 4em;
   font-weight: 400;
 }
 .current__weather__timelapse > * {
@@ -116,14 +124,19 @@
   display: flex;
   padding: 3em 0;
 }
-.hourly__weather__indicator:first-child {
-  margin-top: 8em;
+.hourly__weather__indicators {
+  display: flex;
+  flex-direction: column;
 }
+/* .hourly__weather__indicator:first-child {
+  margin-top: 7.64vw;
+} */
+
 .hour__forecast {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 10px;
+  padding: 20px;
 }
 .hour__forecast:not(:last-child) {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -131,13 +144,49 @@
 .hourly__weather__hour {
   width: 20%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
-.hourly__weather__inner li:nth-child(3) {
-  margin-top: 6.8em;
+.hourly__weather__hour h4 {
+  flex: 1 1 50%;
+}
+.hourly__image img {
+  height: 100%;
+  width: 7.4vw;
+  object-fit: contain;
 }
 .default_title {
   color: var(--mainColor);
 }
-
-
-
+.Error404 {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  background-color: #8177e8;
+  overflow-y: hidden;
+  position: relative;
+  z-index: -2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.Error404 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: -1;
+  position: absolute;
+  
+}
+.Error404 p {
+  position: absolute;
+  font-size: 3vw;
+  z-index: 100;
+  /* bottom: 3%; */
+  margin-top: 50px;
+  font-family: 'Fjalla One', sans-serif;
+}

@@ -1,110 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="./css/index.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header class="header">
-        <div class="header__inner container">
-          <div class="header__logo">
-            <h2>MY WEATHER</h2>
-          </div>
-          <div class="header__search">
-            <input
-              type="text"
-              placeholder="searf"
-              value="Samarqand"
-              class="search-city"
-            />
-            <button class="find-city">
-              <i class="fa-solid fa-magnifying-glass search__glass"></i>
-            </button>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <div class="header__inner container">
+        <div class="header__logo">
+          <h2>MY WEATHER</h2>
         </div>
-      </header>
-      <section class="navigation_bar">
-        <nav class="subheader__nav container">
-          <button class="nav__today active_btn">Today</button>
-          <button class="nav__forecast ">5-day forecast</button>
-        </nav>
-      </section>
-      <section class="main__container">
-        <main class="main container">
-            <section class="main__current_weather">
-                <div class="current__weather_title">
-                    <h2>CURRENT WEATHER</h2>
-                    <p class="current__weather__date">30.06.2018</p>
-                </div>
-                <div class="current__weather_body">
-                    <div class="current__weather__icon ">
-                        <img src="" alt="icon" class="current__weather__image default-height">
-                        <p class="current__weather__description">Sunny</p>
-                    </div>
-                    <div class="current__weather__degrees ">
-                        <h2 class="current__weather__deg default-height">29&degC</h1>
-                        <p class="current__weather__feelslike">real feel <span>30&deg</span></p>
-                    </div>
-                    <ul class="current__weather__timelapse ">
-                        <li><span>Sunrise</span>7:04 AM</li>
-                        <li><span>Sunrise</span>7:04 AM</li>
-                        <li><span>Sunrise</span>7:04 AM</li>
-                    </ul>
-                </div>
-            </section>
-            <section class="main__hourly__weather">
-                <div class="hourly__weather">
-                    <h2 class="default_title">HOURLY</h2>
-                    <ul class="hourly__weather__body">
-                        <li class="hourly__weather__hour">
-                            <h4>TODAY</h4>
-                            <ul class="hourly__weather__indicators">
-                                <li class="hourly__weather__indicator hour__forecast">Forecast</li>
-                                <li class="hourly__weather__indicator hour__forecast">Temp(&degC)</li>
-                                <li class="hourly__weather__indicator hour__forecast">RealFeel</li>
-                                <li class="hourly__weather__indicator hour__forecast">Wind(km/h)</li>
+        <form action="" class="header__search">
+          <input type="text" placeholder="searf" value="Samarkand" class="search-city" />
+          <button class="find-city">
+            <i class="fa-solid fa-magnifying-glass search__glass"></i>
+          </button>
+        </form>
 
-                            </ul>
-                        </li>
-                        <li class="hourly__weather__hour">
-                            <ul class="hourly__weather__inner">
-                                <li>7pm</li>
-                                <li><img src="" alt=""></li>
-                                <li class="hour__forecast ">Sunny</li>
-                                <li class="hour__forecast">29</li>
-                                <li class="hour__forecast">28</li>
-                                <li class="hour__forecast">11se</li>
-                            </ul>
-                      
-                        </li>
-                        <li class="hourly__weather__hour">
+      </div>
+    </header>
+    <section class="navigation_bar">
+      <nav class="subheader__nav container">
+        <button class="nav__today active_btn" id="todaybtn">Today</button>
+        <button class="nav__forecast" id="fivedaybtn">5-day forecast</button>
+      </nav>
+    </section>
+    <section class="main__container">
+      <div class=" container Error404 ">
+        <img src="./2660704.jpg" alt="404">
+        <p>City not found</p>
+      </div>
+      <main class="main container " id="main">
+        <section class="main__current_weather">
+          <div class="current__weather_title">
+            <h2>CURRENT WEATHER</h2>
+            <p class="current__weather__date">30.06.2018</p>
+          </div>
+          <div class="current__weather_body">
+            <div class="current__weather__icon ">
+              <img src="" alt="icon" class="current__weather__image default-height">
+              <p class="current__weather__description">Sunny</p>
+            </div>
+            <div class="current__weather__degrees ">
+              <h2 class="current__weather__deg default-height">29&degC</h1>
+                <p class="current__weather__feelslike">real feel <span>30&deg</span></p>
+            </div>
+            <ul class="current__weather__timelapse ">
+              <li><span>Sunrise</span>7:04 AM</li>
+              <li><span>Sunrise</span>7:04 AM</li>
+              <li><span>Sunrise</span>7:04 AM</li>
+            </ul>
+          </div>
+        </section>
+        <section class="main__hourly__weather">
+          <div class="hourly__weather">
+            <h2 class="default_title">HOURLY</h2>
+            <ul class="hourly__weather__body">
+              <li class="hourly__weather__hour">
+                <h4>TODAY</h4>
+                <ul class="hourly__weather__indicators">
+                  <li class="hourly__weather__indicator hour__forecast">Forecast</li>
+                  <li class="hourly__weather__indicator hour__forecast">Temp(&degC)</li>
+                  <li class="hourly__weather__indicator hour__forecast">RealFeel</li>
+                  <li class="hourly__weather__indicator hour__forecast">Wind(km/h)</li>
 
-                        </li>
-                        <li class="hourly__weather__hour">
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </section>
+  </div>
+  <script src="./script.js"></script>
+</body>
 
-                        </li>
-                        <li class="hourly__weather__hour">
-
-                        </li>
-                        <li class="hourly__weather__hour">
-
-                        </li>
-                        <li class="hourly__weather__hour">
-
-                        </li>
-                    </ul>
-                </div>
-            </section>
-        </main>
-      </section>
-    </div>
-    <script src="./script.js"></script>
-  </body>
 </html>
