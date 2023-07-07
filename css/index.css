@@ -22,6 +22,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 1em;
 }
 .header__inner {
   display: flex;
@@ -81,9 +82,9 @@
 }
 
 .main__current_weather {
-  height: 20vh;
+  height: 220px;
   background-color: #fff;
-  padding: 2em;
+  padding: 4em 1em;
 }
 .current__weather_title {
   color: var(--mainColor);
@@ -124,13 +125,15 @@
   display: flex;
   padding: 3em 0;
 }
+.hourlyImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .hourly__weather__indicators {
   display: flex;
   flex-direction: column;
 }
-/* .hourly__weather__indicator:first-child {
-  margin-top: 7.64vw;
-} */
 
 .hour__forecast {
   display: flex;
@@ -146,6 +149,15 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+.hourlyImage__container {
+  width: 100%;
+  height: 100%;
+}
+.hourlyLink {
+  text-decoration: none;
+  color: #000;
 }
 .hourly__weather__hour h4 {
   flex: 1 1 50%;
@@ -180,7 +192,6 @@
   object-fit: contain;
   z-index: -1;
   position: absolute;
-  
 }
 .Error404 p {
   position: absolute;
@@ -188,5 +199,32 @@
   z-index: 100;
   /* bottom: 3%; */
   margin-top: 50px;
-  font-family: 'Fjalla One', sans-serif;
+  font-family: "Fjalla One", sans-serif;
+}
+.main__daily {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  text-align: center;
+}
+.main__daily > * {
+  flex: 1 1 auto;
+  padding: 30px;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  align-tracks: center;
+  justify-content: center;
+}
+.main__daily h2 {
+  font-size: 3.5vw;
+}
+.main__daily_day h5 {
+  font-size: 2vw;
+  color: var(--mainColor);
+}
+.main__daily_day p {
+  font-size: 1.5vw;
+  margin-top: 10px;
 }
