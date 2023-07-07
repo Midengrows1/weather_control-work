@@ -62,6 +62,7 @@
 .navigation_bar {
   display: flex;
   background-color: rgba(0, 0, 0, 0.8);
+
 }
 .subheader__nav > * {
   padding: 10px 15px;
@@ -69,8 +70,9 @@
   background: transparent;
   color: #fff;
   border: transparent;
+  cursor: pointer;
 }
-.active_btn {
+.active_btn { 
   border: 1px solid rgba(225, 225, 225, 0.3);
   border-bottom: 2px solid var(--mainColor);
 }
@@ -214,8 +216,12 @@
   border: 1px solid gray;
   display: flex;
   flex-direction: column;
-  align-tracks: center;
+  /* align-tracks: center; */
   justify-content: center;
+  background: rgba(225, 225, 225, 0.3);
+}
+.active_day{
+  background-color: #fff;
 }
 .main__daily h2 {
   font-size: 3.5vw;

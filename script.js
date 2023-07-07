@@ -50,14 +50,14 @@ function showCurrentWeather(data) {
   );
   currentTimeLapse.innerHTML = ` 
        <li><span>Sunrise</span>: ${new Date(
-         sys.sunrise * 1000
-       ).toLocaleTimeString("en-US", { hour12: true })}</li>
+    sys.sunrise * 1000
+  ).toLocaleTimeString("en-US", { hour12: true })}</li>
        <li><span>Sunset</span>: ${new Date(
-         sys.sunset * 1000
-       ).toLocaleTimeString("en-US", { hour12: true })}</li>
+    sys.sunset * 1000
+  ).toLocaleTimeString("en-US", { hour12: true })}</li>
        <li><span>Duration</span>: ${new Date(
-         (sys.sunrise - sys.sunset) * 1000
-       ).toLocaleTimeString()} hr</li>`;
+    (sys.sunrise - sys.sunset) * 1000
+  ).toLocaleTimeString()} hr</li>`;
   currentIcon.src = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
   currentDescription.textContent = weather[0].description;
   currentDeg.innerHTML = `${Math.round(main.temp)}&degC`;
@@ -77,7 +77,6 @@ newFetch(cityInput.value).then((data) => {
 });
 function ShowWeather(data) {
   const dailyData = data;
-  console.log(dailyData);
   main_weather.style.display = "none";
   mainDaily.style.display = "flex";
 
@@ -95,15 +94,14 @@ function ShowWeather(data) {
         <a href ="#" class="hourlyLink">
         <div class="main__daily_day">
         <h5>${new Date(dt * 1000).toLocaleDateString("en-US", {
-          weekday: "long",
-        })}</h5>
+      weekday: "long",
+    })}</h5>
         <p>${new Date(dt * 1000).toLocaleString("en-In", {
-          day: "numeric",
-          month: "long",
-        })}</p>
-        <img src="https://openweathermap.org/img/wn/${
-          weather[0].icon
-        }@2x.png" alt="">
+      day: "numeric",
+      month: "long",
+    })}</p>
+        <img src="https://openweathermap.org/img/wn/${weather[0].icon
+      }@2x.png" alt="">
         <h2>${Math.round(main.temp)}&deg</h2>
         <p>${weather[0].main}</p>
         </div>
@@ -112,9 +110,12 @@ function ShowWeather(data) {
   });
   mainDaily.innerHTML = mainDailyContainer;
   let linkhour = document.querySelectorAll(".hourlyLink");
-  console.log(linkhour);
   for (let i = 0; i < 5; i++) {
     linkhour[i].addEventListener("click", (event) => {
+      linkhour.forEach(i => {
+        i.classList.remove('active_day')
+      })
+      event.currentTarget.classList.add('active_day')
       event.preventDefault();
       showHourlyWeather(dailyData, [i * 8]);
     });
@@ -137,15 +138,16 @@ function showHourlyWeather(data, indexBegin) {
               </li>`;
   let hourItem = "";
   for (let i = indexBegin; i < +indexBegin + 6; i++) {
-    const temp = data.list[i].main.temp;
-    const feelsLike = data.list[i].main.feels_like;
-    const placeholder = data.city.name;
+    let { main, city, list, weather } = data
+    const tempreture = list[i].main.temp;
+    const feelsLike = list[i].main.feels_like;
+    const placeholder = city.name;
     cityInput.placeholder = placeholder;
     cityInput.value = "";
-    const wind = data.list[i].wind.speed;
-    const desc = data.list[i].weather[0].main;
-    const icon = data.list[i].weather[0].icon;
-    const unixTime = data.list[i].dt;
+    const wind = list[i].wind.speed;
+    const descript = list[i].weather[0].main;
+    const icon = list[i].weather[0].icon;
+    const unixTime = list[i].dt;
     const dateTime = new Date(unixTime * 1000).toLocaleTimeString("en-US", {
       hour: "numeric",
       hour12: true,
@@ -156,9 +158,9 @@ function showHourlyWeather(data, indexBegin) {
         <div class='hourlyImage__container'>
         <img src="https://openweathermap.org/img/wn/${icon}@2x.png"  class="hourly__image"id="hourlyIcon">
         </div>
-        <p class="hour__forecast">${desc}</p>
-        <p class="hour__forecast">${Math.floor(temp)}°</p>
-        <p class="hour__forecast">${Math.floor(feelsLike)}°</p>
+        <p class="hour__forecast">${descript}</p>
+        <p class="hour__forecast">${Math.floor(tempreture)}&deg</p>
+        <p class="hour__forecast">${Math.floor(feelsLike)}&deg</p>
         <p class="hour__forecast">${wind}</p>
         </li>
         `;
